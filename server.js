@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 // API Routes
 // Renders the search form
 app.get("/", (request, response) => {
-  response.render("pages/index", { message: "It Works!" });
+  response.render("pages/index", { message: "nice It Works!" });
 });
 app.get("/home");
 // Creates a new search to the Google Books API
@@ -30,7 +30,7 @@ app.post("/searches", createSearch);
 // HELPER FUNCTIONS - constructor/translator
 function Book(info) {
   const placeholderImage = "https://placeholder.com/300x300";
-  this.title = info.title ? info.title : "No title available";
+  this.title = info.title ? info.title : "No title available at the moment";
 }
 
 // Note that .ejs file extension is not required
@@ -38,8 +38,7 @@ function newSearch(request, response) {
   response.render("pages/index");
 }
 
-// No API key required
-// Console.log (request.body and request.body.search
+// NO API Required
 function createSearch(request, response) {
   let url = "https://www.googleapis.com/books/v1/volumes?q=";
 
@@ -65,7 +64,7 @@ function createSearch(request, response) {
 }
 // error catcher
 app.get("*", (request, response) =>
-  response.status(404).send("This route does not exist")
+  response.status(404).send("Oh no it doesnt work")
 );
 
 //error handler
