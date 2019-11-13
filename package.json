@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/lrodriguezjb/lab-11books#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^2.7.2",
     "express": "^4.17.1",
+    "pg": "^7.12.1",
     "superagent": "^5.1.0"
   }
 }

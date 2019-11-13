@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Book Collection</title>
-    <link rel="stylesheet" type="text/css" href="/styles/base.css">
+    <link rel="stylesheet" type="text/css" href="/styles/base.css" />
   </head>
+
   <body>
-      <h1>Hello World</h1>
-      <p><%= message %></p>
-      <p><a href="/">Sample Here</a></p>
-      <p><a href="/">Sample Here</a></p>
+    <%- include('layout/header') %>
+    <h1>Best Books!</h1>
+    <p>Number of Books: <%= books.length %></p>
+
     <main>
-      <h4>Search by Title or Author</h4>
-      <form action="/searches" method="post">
-        <input type="text" name="search" placeholder="Enter a title or author" required>
-        <fieldset>
-          <label for="title">
-            <span>Title</span>
-            <input type="radio" name="search" value="title" required>
-          </label>
-        </fieldset>
-        <fieldset>
-          <label for="author">
-            <span>Author</span>
-            <input type="radio" name="search" value="author" required>
-          </label>
-        </fieldset>
-        <button type="submit">Search the Google Books API</button>
-      </form>
+      <ul id="book-list">
+        <% books.forEach(book => { %>
+        <li>
+          <h3><%= book.title %></h3>
+          <img src="<% book.image_url %>" />
+          <h3><%= book.author %></h3>
+          <h3><%= book.description %></h3>
+          <h3><%= book.industryIdentifiers %></h3>
+        </li>
+        <% }) %>
+      </ul>
     </main>
+    <%- include('layout/footer') %>
   </body>
 </html>
